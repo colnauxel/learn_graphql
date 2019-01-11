@@ -1,6 +1,9 @@
 const express=require('express');
 const graphqlHTPP=require('express-graphql');
+const db=require('./config/mongodb');
 const schema=require('./schema/schema');
+
+
 const app=express();
 
 app.use('/graphql',graphqlHTPP({
