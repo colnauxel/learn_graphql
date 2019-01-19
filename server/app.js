@@ -4,6 +4,7 @@ const db=require('./config/mongodb');
 const schema=require('./schema/schema');
 const cors=require('cors');
 
+
 const app=express();
 
 //allow cross-origin requests

@@ -151,6 +151,18 @@ const Mutation=new GraphQLObjectType({
                 return Book.findByIdAndUpdate(args.id,args);
             }
 
+        },
+        searchBook:{
+            type:new GraphQLList(BookType),
+            args:{
+                id:{type:GraphQLID},
+                name:{type: GraphQLString},
+                genre:{type:GraphQLString},
+                authorId:{type:GraphQLID}
+            },
+            resolve(parent,args){
+                return Book.find({name: {'$regex': args.name}});
+            }
         }
     }
 })
