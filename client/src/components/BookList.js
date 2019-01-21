@@ -1,8 +1,8 @@
 import React,{Component} from 'react';
-import {graphql} from 'react-apollo';
+import {graphql, Query} from 'react-apollo';
 import {getBooksQuery,deleteBook} from '../queries/queries';
 import BookDetails from './BookDetails';
-
+import DeleteBook from './DeleteBook';
 class BookList extends Component{
     constructor(props){
         super(props);
@@ -11,9 +11,7 @@ class BookList extends Component{
             deleted:null
         }
     }
-    deleteBook(){
-        
-    }
+   
     displayBooks(){
         var data=this.props.data;
         if(data.loading){
@@ -23,7 +21,8 @@ class BookList extends Component{
                 return (
                     <div>
                          <li key={book.id} onClick={(e)=>{this.setState({selected:book.id})}} >{book.name}</li>
-                         <button onClick={(e)=>{this.setState({delete:book.id})}}>x</button>
+                         <DeleteBook deleteId={book.id}/>
+                        
                     </div>
                    
                 )
@@ -35,10 +34,12 @@ class BookList extends Component{
     render(){
       
         return(
+        
             <div>
                 <ul id="book-list">
                 {this.displayBooks()}
                 </ul>
+              
                 <BookDetails bookId={this.state.selected} />
             </div>
             

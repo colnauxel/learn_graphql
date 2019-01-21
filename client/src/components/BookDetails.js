@@ -25,13 +25,14 @@ class BookDetails extends Component{
      }else{
        return(
          <div id="book-details">
+         
         No book selected
          </div>
        )
      }
    }
     render(){
-      console.log(this.props);
+      // console.log(this.props);
       
         return(
             <div id="book-details">
