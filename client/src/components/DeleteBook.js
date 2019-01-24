@@ -18,11 +18,8 @@ class DeleteBook extends Component{
     render(){
       // console.log(this.props);
       
-        return(
-           
+        return(  
               <button onClick={(e)=>{this.deleteBook()}}>x</button>
-           
-            
             );
         
     }

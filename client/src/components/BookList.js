@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import {graphql, Query} from 'react-apollo';
 import {getBooksQuery,deleteBook} from '../queries/queries';
 import BookDetails from './BookDetails';
+import EditBook from './EditBook';
 import DeleteBook from './DeleteBook';
 class BookList extends Component{
     constructor(props){
@@ -22,7 +23,7 @@ class BookList extends Component{
                     <div>
                          <li key={book.id} onClick={(e)=>{this.setState({selected:book.id})}} >{book.name}</li>
                          <DeleteBook deleteId={book.id}/>
-                        
+                        {/* <EditBook editId={book.id}/> */}
                     </div>
                    
                 )
